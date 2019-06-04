@@ -14,16 +14,18 @@ public class CardsController {
 
     @RequestMapping("/cards")
     Iterable<Card> getCards(){
-        return null;
+        //TODO: додати прийом параметру
+        return cardsService.getCardsByOwnerId(1);
     }
 
     @RequestMapping("/block")
     String block(){
-        return null;
+        cardsService.block();
+        return "Blocked succesfull";
     }
 
     @RequestMapping("/unblock")
-    String unblock(){
-        return null;
+    void unblock(){
+        cardsService.unblock();
     }
 }

@@ -31,8 +31,4 @@ public class UserController {
 //        return null;
     }
 
-    @RequestMapping("/pay")
-    String pay(){
-        return null;
-    }
 }
