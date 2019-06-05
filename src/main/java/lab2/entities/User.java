@@ -31,7 +31,11 @@ public class User {
     @Column(name = "is_admin")
     private boolean isAdmin;
 
-    //тут буде ManyToOne
+
+    @OneToMany(fetch = FetchType.EAGER )
+    @JoinColumn(name = "card_owner_id")
+//    @OneToMany
+    private Set<Card> cards;
 
     public Set<Card> getCards() {
         return cards;
@@ -40,12 +44,6 @@ public class User {
     public void setCards(Set<Card> cards) {
         this.cards = cards;
     }
-
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user" )
-    @OneToMany(fetch = FetchType.EAGER )
-    @JoinColumn(name = "card_owner_id")
-//    @OneToMany
-    private Set<Card> cards;
 
     public String getEmail() {
         return email;

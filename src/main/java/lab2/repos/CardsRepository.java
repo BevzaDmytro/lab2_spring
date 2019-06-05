@@ -10,4 +10,8 @@ public interface CardsRepository extends JpaRepository<Card, Integer> {
 
     @Query(value = "select * from cards where card_owner_id = :id", nativeQuery = true)
     Iterable<Card> getCardsByOwnerId(@Param("id") int i);
+
+
+    @Query(value = "select * from cards where card_number = :cardNum", nativeQuery = true)
+    Card findCardByNum(@Param("cardNum") String cardNum);
 }

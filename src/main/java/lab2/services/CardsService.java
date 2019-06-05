@@ -15,4 +15,16 @@ public class CardsService {
     public Iterable<Card> getCardsByOwnerId(int i){
         return cardsRepository.getCardsByOwnerId(i);
     }
+
+    public void block(String cardNum) {
+        Card card = cardsRepository.findCardByNum(cardNum);
+        card.setBlocked(true);
+        cardsRepository.saveAndFlush(card);
+    }
+
+    public void unblock(String cardNum) {
+        Card card = cardsRepository.findCardByNum(cardNum);
+        card.setBlocked(false);
+        cardsRepository.saveAndFlush(card);
+    }
 }
